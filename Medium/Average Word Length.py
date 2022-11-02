@@ -1,12 +1,8 @@
 import math
 import string
-
-a = input()
-b = len(a)
-
 counter = 0
 divider = 1
-for x in a:
+for x in input():
     if x in string.ascii_letters:
         counter += 1
     elif x == " ":

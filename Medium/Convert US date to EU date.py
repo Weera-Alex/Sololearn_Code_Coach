@@ -1,8 +1,5 @@
-a = input()
-count = 0
-b = ""
-c = ""
-d = ""
+import copy
+us_date = input()
 dict = {
     "January": 1,
     "February": 2,
@@ -17,33 +14,23 @@ dict = {
     "November": 11,
     "December": 12,
 }
-y = ""
-t = ""
-year = ""
-ti = True
-t2 = False
-if a[0].isnumeric():
-    for x in a:
-        if count == 2:
-            d += x
-        if x == "/":
-            count += 1
-        if count == 0 and x != "/":
-            b += x
-        if count == 1 and x != "/":
-            c += x
-    print(c, b, d, sep="/")
-
+if us_date[0].isnumeric():
+    us_date = us_date.split("/")
+    copylist = copy.deepcopy(us_date)
+    us_date[0] = copylist[1]
+    us_date[1] = copylist[0]
+    new_date = ""
+    for x in us_date:
+        new_date += x + "/"
+    print(new_date[:-1])
 else:
-    for x in a:
-        if x.isnumeric() and t2:
-            year += x
-        if x.isnumeric() and ti:
-            y += x
-        if x == ",":
-            ti = False
-            t2 = True
-        elif x != " " and not x.isnumeric():
-            t += x
+    us_date = us_date.replace(",", "").split()
+    us_date[0] = str(dict[us_date[0]])
+    copylist = copy.deepcopy(us_date)
+    us_date[0] = copylist[1]
+    us_date[1] = copylist[0]
+    new_date = ""
+    for x in us_date:
+        new_date += x + "/"
+    print(new_date[:-1])
 
-    print(y,dict[t],year,sep="/",end="")

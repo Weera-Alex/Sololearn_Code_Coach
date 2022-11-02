@@ -1,0 +1,8 @@
+c = float(input())
+m = float(input())
+y = float(input())
+key = float(input())
+R = 255 * (1 - c) * (1 - key)
+G = 255 * (1 - m) * (1 - key)
+B = 255 * (1 - y) * (1 - key)
+print(round(R),round(G),round(B),sep=",")
